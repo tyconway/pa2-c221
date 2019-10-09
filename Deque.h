@@ -50,7 +50,17 @@ public:
 	}
 
 	void insertLast(Type o) {
-        assert(false);
+        Node<Type>* inserted = new Node<Type>(o);
+        if (size() == 0) {
+            firstNode = inserted;
+            lastNode = inserted;
+            s++;
+            return;
+        }
+        lastNode->setNext(inserted);
+        inserted->setPrev(lastNode);
+        lastNode = inserted;
+        s++;
 	}
 	
 	Type removeFirst() {
