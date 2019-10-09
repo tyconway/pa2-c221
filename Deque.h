@@ -36,7 +36,17 @@ public:
 	}
 
 	void insertFirst(Type o) {
-        assert(false);
+        Node<Type>* inserted = new Node<Type>(o);
+        if (size() == 0) {
+            firstNode = inserted;
+            lastNode = inserted;
+            s++;
+            return;
+        }
+        inserted->setNext(firstNode);
+        firstNode->setPrev(inserted);
+        firstNode = inserted;
+        s++;
 	}
 
 	void insertLast(Type o) {
