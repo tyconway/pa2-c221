@@ -20,11 +20,11 @@ public:
 	}
 	
 	bool isEmpty() {
-        assert(false);
+        return (s < 1);
 	}
 
 	int size() {
-        assert(false);
+        return s;
 	}
 
 	Type first() {
