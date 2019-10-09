@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DEQUE_H
+#define DEQUE_H
 
 #include "Node.h"
 #include <assert.h>
@@ -12,11 +13,10 @@ private:
 
 public:
 	Deque() {
-        assert(false);
+        s = 0;
 	}
 
 	~Deque() {
-        assert(false);
 	}
 	
 	bool isEmpty() {
@@ -51,3 +51,5 @@ public:
         assert(false);
 	}
 };
+
+#endif
