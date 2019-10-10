@@ -83,7 +83,21 @@ public:
 	}
 
 	Type removeLast() {
-        assert(false);
+        if (isEmpty()) { throw EmptyDeque(); }
+        Type removedData = lastNode->getData();
+        if (size() == 1) {
+            delete lastNode;
+            lastNode = nullptr;
+            firstNode = nullptr;
+            s--;
+            return removedData;
+        }
+        Node<Type>* removed = lastNode;
+        lastNode = lastNode->getPrev();
+        delete removed;
+        lastNode->setNext(nullptr);
+        s--;
+        return removedData;
 	}
 };
 

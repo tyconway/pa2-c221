@@ -34,7 +34,6 @@ int main() {
         cout << "Size: " << deque->size() << endl;
         cout << "removeFirst(): " << deque->removeFirst() << endl;
         cout << "Size: " << deque->size() << endl;
-        cout << "removeFirst(): " << deque->removeFirst() << endl;
 
         deque->insertLast(1);
         cout << "insertLast(1)\n";
@@ -44,6 +43,12 @@ int main() {
         cout << "insertLast(2)\n";
         cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
         cout << "Size: " << deque->size() << endl;
+
+        cout << "removeLast(): " << deque->removeLast() << endl;
+        cout << "Size: " << deque->size() << endl;
+        cout << "removeLast(): " << deque->removeLast() << endl;
+        cout << "Size: " << deque->size() << endl;
+        cout << "removeLast(): " << deque->removeLast() << endl;
     }
 	catch (const exception& e)
 	{
