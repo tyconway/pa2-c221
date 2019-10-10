@@ -18,6 +18,7 @@ public:
 	}
 
 	~Deque() {
+        // TODO cleanup after yourself.
 	}
 	
 	bool isEmpty() {
@@ -29,11 +30,13 @@ public:
 	}
 
 	Type first() {
-        assert(false);
+        if (isEmpty()) { throw EmptyDeque(); }
+        return firstNode->getData();
 	}
 
 	Type last() {
-        assert(false);
+        if (isEmpty()) { throw EmptyDeque(); }
+        return lastNode->getData();
 	}
 
 	void insertFirst(Type o) {

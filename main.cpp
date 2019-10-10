@@ -28,6 +28,7 @@ int main() {
         cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
         cout << "Size: " << deque->size() << endl;
 
+
         cout << "removeFirst(): " << deque->removeFirst() << endl;
         cout << "Size: " << deque->size() << endl;
         cout << "removeFirst(): " << deque->removeFirst() << endl;
@@ -35,12 +36,13 @@ int main() {
         cout << "removeFirst(): " << deque->removeFirst() << endl;
         cout << "Size: " << deque->size() << endl;
 
-        deque->insertLast(1);
-        cout << "insertLast(1)\n";
+        deque->insertLast(7);
+        cout << "insertLast(7)\n";
         cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
         cout << "Size: " << deque->size() << endl;
         deque->insertLast(2);
         cout << "insertLast(2)\n";
+        cout << "Last: " << deque->last() << endl;
         cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
         cout << "Size: " << deque->size() << endl;
 
