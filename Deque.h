@@ -18,7 +18,14 @@ public:
 	}
 
 	~Deque() {
-        // TODO cleanup after yourself.
+        Node<Type>* curr = firstNode;
+        while (curr) {
+            curr->setNext(curr->getNext());
+            delete curr;
+            curr = curr->getNext();
+        }
+        firstNode = nullptr;
+        lastNode = nullptr;
 	}
 	
 	bool isEmpty() {

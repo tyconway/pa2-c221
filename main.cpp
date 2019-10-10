@@ -50,7 +50,8 @@ int main() {
         cout << "Size: " << deque->size() << endl;
         cout << "removeLast(): " << deque->removeLast() << endl;
         cout << "Size: " << deque->size() << endl;
-        cout << "removeLast(): " << deque->removeLast() << endl;
+
+        delete deque;
     }
 	catch (const exception& e)
 	{
