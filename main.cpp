@@ -2,59 +2,154 @@
 #include <exception>
 #include <assert.h>
 #include <iostream>
-#include <string>
 #include "Deque.h"
+#include <exception>
+#include <string>
 #include "Exception.h"
 
 using namespace std;
 
-int main() {
-    try {
-        cout << "\n";
+int main()
+{
+	Deque<int> intQ;
 
-        Deque<int>* deque = new Deque<int>();
-        cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
-        cout << "Size: " << deque->size() << endl;
-        deque->insertFirst(1);
-        cout << "insertFirst(1)\n";
-        cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
-        cout << "Size: " << deque->size() << endl;
-        deque->insertFirst(2);
-        cout << "insertFirst(2)\n";
-        cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
-        cout << "Size: " << deque->size() << endl;
-        deque->insertFirst(3);
-        cout << "insertFirst(3)\n";
-        cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
-        cout << "Size: " << deque->size() << endl;
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	assert(intQ.size() == 1);
+	assert(intQ.removeFirst() == 1);
 
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	assert(intQ.size() == 1);
+	assert(intQ.removeLast() == 1);
 
-        cout << "removeFirst(): " << deque->removeFirst() << endl;
-        cout << "Size: " << deque->size() << endl;
-        cout << "removeFirst(): " << deque->removeFirst() << endl;
-        cout << "Size: " << deque->size() << endl;
-        cout << "removeFirst(): " << deque->removeFirst() << endl;
-        cout << "Size: " << deque->size() << endl;
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	assert(intQ.size() == 2);
+	assert(intQ.removeLast() == 1);
+	assert(intQ.removeLast() == 0);
 
-        deque->insertLast(7);
-        cout << "insertLast(7)\n";
-        cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
-        cout << "Size: " << deque->size() << endl;
-        deque->insertLast(2);
-        cout << "insertLast(2)\n";
-        cout << "Last: " << deque->last() << endl;
-        cout << "Empty: " << boolalpha << deque->isEmpty() << endl;
-        cout << "Size: " << deque->size() << endl;
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	assert(intQ.removeFirst() == 0);
+	assert(intQ.removeFirst() == 1);
 
-        cout << "removeLast(): " << deque->removeLast() << endl;
-        cout << "Size: " << deque->size() << endl;
-        cout << "removeLast(): " << deque->removeLast() << endl;
-        cout << "Size: " << deque->size() << endl;
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	assert(intQ.removeFirst() == 0);
+	assert(intQ.removeLast() == 1);
 
-        delete deque;
-    }
-	catch (const exception& e)
-	{
-		cerr << "\nException: " << e.what() << '\n';
-	}  
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	assert(intQ.removeLast() == 1);
+	assert(intQ.removeFirst() == 0);
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(1);
+	assert(intQ.size() == 1);
+	assert(intQ.removeFirst() == 1);
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(1);
+	assert(intQ.size() == 1);
+	assert(intQ.removeLast() == 1);
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(0);
+	intQ.insertLast(1);
+	assert(intQ.size() == 2);
+	assert(intQ.removeLast() == 1);
+	assert(intQ.removeLast() == 0);
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(0);
+	intQ.insertLast(1);
+	assert(intQ.removeFirst() == 0);
+	assert(intQ.removeFirst() == 1);
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(0);
+	intQ.insertLast(1);
+	assert(intQ.removeFirst() == 0);
+	assert(intQ.removeLast() == 1);
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(0);
+	intQ.insertLast(1);
+	assert(intQ.removeLast() == 1);
+	assert(intQ.removeFirst() == 0);
+
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	intQ.insertLast(2);
+	intQ.insertLast(3);
+	intQ.insertLast(4);
+	intQ.insertLast(5);
+	intQ.insertLast(6);
+	for (int i = 0; i < 7; i++) {
+		assert(intQ.removeFirst() == i);
+		assert(intQ.size() == 6 - i);
+	}
+
+	assert(intQ.size() == 0);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	intQ.insertLast(2);
+	intQ.insertLast(3);
+	intQ.insertLast(4);
+	intQ.insertLast(5);
+	intQ.insertLast(6);
+	for (int i = 0; i < 7; i++) {
+		assert(intQ.removeLast() == 6 - i);
+		assert(intQ.size() == 6 - i);
+	}
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(2);
+	intQ.insertLast(3);
+	intQ.insertLast(4);
+	intQ.insertLast(5);
+	intQ.insertLast(6);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	for (int i = 0; i < 7; i++) {
+		assert(intQ.removeLast() == 6 - i);
+		assert(intQ.size() == 6 - i);
+	}
+
+	assert(intQ.size() == 0);
+	intQ.insertLast(2);
+	intQ.insertLast(3);
+	intQ.insertLast(4);
+	intQ.insertLast(5);
+	intQ.insertLast(6);
+	intQ.insertFirst(1);
+	intQ.insertFirst(0);
+	for (int i = 0; i < 7; i++) {
+		assert(intQ.removeFirst() == i);
+		assert(intQ.size() == 6 - i);
+	}
+
+	assert(intQ.isEmpty());
+	intQ.insertFirst(1);
+	assert(intQ.first() == 1);
+	assert(intQ.last() == 1);
+	assert(!intQ.isEmpty());
+	assert(intQ.removeLast() == 1);
+
+	assert(intQ.isEmpty());
+	intQ.insertLast(1);
+	assert(intQ.first() == 1);
+	assert(intQ.last() == 1);
+	assert(!intQ.isEmpty());
+	assert(intQ.removeFirst() == 1);
+
+	cout << "All tests passed." << endl;
+
+	return 0;
 }
